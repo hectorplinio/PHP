@@ -27,10 +27,12 @@
 <?php
 
 	if(isset($_POST["enviando"])){
-		$edad=$_POST["edad_usuario"];
+		//Dentro de las comillas se pone el name que hemos puesto en la otra pagina
+		$contra=$_POST["contra"];
+		$nombre=$_POST["nombre_usuario"];
 		
-		if ($edad<=18){
-			echo "Eres menor de edad";
+		/*if ($edad<18){
+			echo "Eres menor de edad. No tienes acceso";
 		}else if ($edad<=40){//Else if para meter varios if dentro de otros if, si no se pone el else, el programa entra en todas las condiciones
 			echo "Eres joven";
 		}else if ($edad<=65){//Sirve para decirle que van todos dentro del mismo bloque
@@ -38,7 +40,9 @@
 		}else{
 			echo "Cuidate";
 		}
-		
+		*/
+		//Esto es para el operador ternario, si se cumple imprime la primera expresion, si no la segunda. Tambien se puede poner que te guarde el resultado en una variable
+		echo $nombre=="Hector" && $contra == "1234" ? " Puedes acceder" : "No puedes acceder";
 	}
 	
 ?>

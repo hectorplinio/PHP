@@ -33,7 +33,7 @@
 <body>
 <h1>USANDO CONDICIONALES</h1>
 
-<form action="Practicas/validacion_condicionales.php" method="post" name="datos_usuario" id="datos_usuario">
+<form action="condicionales_switch.php" method="post" name="datos_usuario" id="datos_usuario">
   <table width="15%" align="center">
     <tr>
       <td>Nombre:</td>
@@ -42,8 +42,8 @@
     </tr>
     <tr>
       <td>Contraseña:</td>
-      <td><label for="edad_usuario"></label>
-      <input type="text" name="contra" id="contra"></td>
+      <td><label for="contra_usuario"></label>
+      <input type="text" name="contra_usuario" id="contra_usuario"></td>
     </tr>
     <tr>
       <td>&nbsp;</td>
