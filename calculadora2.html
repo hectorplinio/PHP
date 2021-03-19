@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Calculator</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="light.css" id="theme" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: "Open Sans", sans-serif;
+        }
+        
+        body {
+            background-color: rgb(28, 231, 221);
+            transition: 0.8s;
+            -webkit-transition: 0.8s;
+            -moz-transition: 0.8s;
+            -ms-transition: 0.8s;
+            -o-transition: 0.8s;
+        }
+        
+        .wrapper {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 1.5%;
+            color: #fff;
+        }
+        
+        .container {
+            width: 300px;
+        }
+        
+        .result {
+            width: 59.1%;
+        }
+        
+        input {
+            padding: 25px;
+            color: rgb(17, 16, 16);
+            font-size: 1em;
+            cursor: pointer;
+            width: 70px;
+            background-color: #fff;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+        }
+        
+        .first-row,
+        .second-row,
+        .third-row,
+        .fourth-row,
+        .fifth-row {
+            margin-bottom: 3px;
+        }
+        
+        input[type="text"] {
+            background-color: rgb(255, 255, 255);
+            width: 218px;
+        }
+        
+        input[type="button"]:hover {
+            background-color: rgb(37, 35, 59);
+            color: #fff;
+        }
+        
+        .clear {
+            color: #fff;
+            background-color: rgb(255, 25, 25);
+        }
+        
+        button {
+            border: none;
+            background-color: rgb(41, 38, 38);
+            padding: 8px;
+            color: white;
+            margin: 2px;
+            cursor: pointer;
+            outline: none;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 200;
+        }
+        
+        a {
+            text-decoration: none;
+            border: none;
+            background-color: rgb(41, 38, 38);
+            padding: 8px;
+            color: white;
+            margin: 2px;
+            cursor: pointer;
+            outline: none;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 200;
+        }
+        
+        .bottom-buttons {
+            display: flex;
+            margin-left: -2.3px;
+        }
+        
+        .fab {
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h1>Calculator</h1>
+
+            <div class="first-row">
+                <input type="text" name="result" class="result" id="result" value="" placeholder="Result" readonly />
+                <input type="button" value="C" onclick="clearScreen()" class="clear" />
+            </div>
+            <div class="second-row">
+                <input type="button" value="1" onclick="liveScreen(1)" id="one" />
+                <input type="button" value="2" onclick="liveScreen(2)" id="two" />
+                <input type="button" value="3" id="three" onclick="liveScreen(3)" />
+                <input type="button" value="+" onclick="liveScreen('+')" />
+            </div>
+            <div class="third-row">
+                <input type="button" value="4" id="four" onclick="liveScreen(4)" />
+                <input type="button" value="5" id="five" onclick="liveScreen(5)" />
+                <input type="button" value="6" id="six" onclick="liveScreen(6)" />
+                <input type="button" value="-" onclick="liveScreen('-')" />
+            </div>
+            <div class="fourth-row">
+                <input type="button" value="7" id="seven" onclick="liveScreen(7)" />
+                <input type="button" value="8" id="eight" onclick="liveScreen(8)" />
+                <input type="button" value="9" id="nine" onclick="liveScreen(9)" />
+                <input type="button" value="x" onclick="liveScreen('*')" />
+            </div>
+            <div class="fifth-row">
+                <input type="button" value="/" onclick="liveScreen('/')" />
+
+                <input type="button" value="0" id="zero" onclick="liveScreen(0)" />
+                <input type="button" value="." class="dot" onclick="liveScreen('.')" />
+                <input type="button" value="=" onclick="result.value = eval(result.value)" />
+            </div>
+            <div class="bottom-buttons">
+                <a href="https://github.com/zxcodes/JavaScript-Calculator"><i class="fab fa-github"></i>
+          Source</a>
+                <button onclick="switchTheme()" id="dark-mode">
+          Dark Mode 🌙
+        </button>
+            </div>
+        </div>
+    </div>
+    <!-- Fontawesome Script -->
+    <script src="https://kit.fontawesome.com/f28b055962.js" crossorigin="anonymous"></script>
+    <script src="script.js" sync defer></script>
+</body>
+
+</html>

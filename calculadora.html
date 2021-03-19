@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba Java</title>
+    <script lang="JavaScript">
+        var num = "";
+        var resultado = 0;
+        var num1 = 0;
+        var num2 = 0;
+        var opera;
+
+        function numero(numero) {
+            if (num1 == 0 && num1 !== '0.') {
+                num1 = numero;
+            } else {
+                num1 += numero;
+            }
+            refrescar();
+        }
+
+        function operar(valor) {
+            if (num1 == 0) {
+                num1 = parseFloat(document.getElementById("valor_numero").value);
+            }
+            num2 = parseFloat(num1);
+            num1 = 0;
+            opera = valor;
+        }
+
+        function borrar() {
+            num1 = 0;
+            num2 = 0;
+            refrescar();
+        }
+
+        function igual() {
+            num1 = parseFloat(num1);
+            switch (opera) {
+                case 1:
+                    num1 += num2;
+                    break;
+                case 2:
+                    num1 = num2 - num1;
+                    break;
+                case 3:
+                    num1 *= num2;
+                    break;
+                case 4:
+                    num1 = num2 / num1;
+                    break;
+                case 5:
+                    num1 = Math.pow(num2, num1);
+                    break;
+            }
+            refrescar();
+            num2 = parseFloat(num1);
+            num1 = 0;
+        }
+
+        function refrescar() {
+            document.getElementById("valor_numero").value = num1;
+        }
+    </script>
+    <style type="text/css">
+        #calculadora {
+            background: gray;
+            border: 0;
+        }
+        
+        #calculadora td {
+            padding: 4px;
+        }
+        
+        .cajita_valor {
+            background-color: #acff38;
+            color: #467702;
+            border: 1px solid #454545;
+            width: 130px;
+            height: 26px;
+            font-family: Arial, Helvetica;
+            font-size: 20px;
+            line-height: 26 px;
+            text-align: right;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form>
+        <table id="calculadora">
+            <tr>
+
+                <td colspan="4">
+                    <input type="text" id="valor_numero" maxlength="20" value="0" class="cajita_valor" readonly="true">
+                </td>
+                <tr>
+                    <td style="padding-left: 500;">
+                        <p><input type="button" name="+" value="+" onclick="operar(1)" /></p>
+                    </td>
+                    <td style="padding-left: 500;">
+                        <p><input type="button" name="-" value="-" onclick="operar(2)" /></p>
+                    </td>
+                    <td style="padding-left: 500;">
+                        <p><input type="button" name="/" value="/" onclick="operar(4)" /></p>
+                    </td>
+                    <td style="padding-left: 500;">
+                        <p><input type="button" name="*" value="*" onclick="operar(3)" /></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 500;">
+                        <input type="button" name="1" value="1" onclick="numero(1)" />
+                    </td>
+                    <td style="padding-left: 500;">
+                        <p><input type="button" name="2" value="2" onclick="numero(2)" /></p>
+                    </td>
+                    <td style="padding-left: 500;">
+                        <p><input type="button" name="3" value="3" onclick="numero(3)" /></p>
+                    </td>
+                    <td style="padding-left: 500;">
+                        <p><input type="button" name="4" value="4" onclick="numero(4)" /></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 500;">
+                        <p><input type="button" name="5" value="5" onclick="numero(5)" /></p>
+                    </td>
+                    <td style="padding-left: 500;">
+                        <p><input type="button" name="6" value="6" onclick="numero(6)" /></p>
+                    </td>
+                    <td style="padding-left: 500;">
+                        <p><input type="button" name="7" value="7" onclick="numero(7)" /></p>
+                    </td>
+                    <td style="padding-left: 500;">
+                        <p><input type="button" name="8" value="8" onclick="numero(8)" /></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 500;">
+                        <p><input type="button" name="9" value="9" onclick="numero(9)" /></p>
+                    </td>
+                    <td style="padding-left: 500;">
+                        <p><input type="button" name="0" value="0" onclick="numero(0)" /></p>
+                    </td>
+                    <td style="padding-left: 500;">
+                        <p><input type="button" name="C" value="C" onclick="borrar()" /></p>
+                    </td>
+                    <td style="padding-left: 500;">
+                        <p><input type="button" name="=" value="=" onclick="igual()" /></p>
+                    </td>
+                </tr>
+        </table>
+    </form>
+</body>
+
+</html>

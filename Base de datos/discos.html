@@ -1,0 +1,36 @@
+<?php
+    include 'datos.php';
+    $consulta_disco = "SELECT * FROM disco ORDER BY disco.cod ASC ";
+    $consulta_cancion = "SELECT cancion.titulo, disco.cod, disco.nombre FROM cancion
+                        INNER JOIN esta ON esta.can = cancion.cod  
+                        INNER JOIN disco on disco.cod = esta.cod
+                        ";
+    if ($resultado = $conn->query($consulta_disco)) {
+        echo '<table border="1">';
+        while ($fila = $resultado->fetch_assoc()) {
+            echo '<tr>';
+            echo '<td>';
+            echo $fila['nombre'];
+            echo '</td>';
+            echo '<td>';
+            echo $fila['fecha'];
+            echo '</td>';
+            if ($resultado2 = $conn->query($consulta_cancion)) {
+                echo '<td>';
+                echo '<select>';
+                while ($fila2 = $resultado2->fetch_assoc()) {
+                    if ($fila["cod"] == $fila2["cod"]) {                                             
+                        echo '<option>'.$fila2["titulo"].'</option>'."\n";                                            
+                    }
+                }
+                echo '</select>';
+                echo '</td>';  
+                $resultado2->close();
+            }
+            echo '</tr>';
+        }
+        echo '</table>';
+        $resultado->close();
+    }
+    $conn->close();
+?>

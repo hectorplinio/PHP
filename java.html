@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba Java</title>
+    <!-- Esto sirve para mandar alertas por pantalla -->
+    <script language="JavaScript">
+        alert("Hola mundo!!")
+
+        function abrir_ventana() {
+            window.open("http://www.google.es");
+        }
+
+        function parar_abrir() {
+            clearTimeout(pop);
+        }
+        pop = setInterval("abrir_ventana()", 3000);
+    </script>
+
+</head>
+
+<body>
+    <!-- Esto sirve para crear un boton y cuando le des click te mande a la funcion -->
+    <input type="button" value="atras" onclick="confirmar()">
+    <!-- Asi se hacen las funciones en javaScript,El prompt es para una ventana emergente -->
+    <script language="JavaScript">
+        function confirmar() {
+            var nom;
+            nom = prompt("Escribe tu nombre", "NOMBRE");
+            alert("Mucho gusto " + nom)
+            return confirm(nom + " Esta pagina contiene contendido de mayores.¿Quieres confirmar?");
+        }
+    </script>
+    <input type="button" value="parar de abrir ventanas" onclick="parar_abrir()">
+    <input type="button" value="abrir vetana" onclick="parar_abrir()">
+</body>
+
+</html>
